@@ -1,13 +1,13 @@
 .Contador {
   border: 1px solid black;
-  width: 400px;
+  width: 604px;
   height: 150px;
   line-height: 150px;
   margin: auto;
   font-size: 50px;
   font-weight: 800;
   display: inline-block;
-  float: left;
+  /*float: left;*/
 }
 
 .OtroSumador {
@@ -21,16 +21,17 @@
 
 
 .Sumador {
-  width: 1200px;
+  width: 100%;
   margin: auto;
 }
 
 .Sumador-container {
   border: 1px solid black;
-  width: 400px;
+  width: 100%;
   height: 150px;
   line-height: 150px;
   float: left;
+  box-sizing: border-box;
 }
 .boton {
   width: 60px;

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import Multiplicador from './Multiplicador';
+import OtroSumador from "./OtroSumador";
+import OtroRestador from "./OtroRestador";
+
+/*import Multiplicador from './Multiplicador';
 import Divisor from './Divisor';
+import OtroRestador from "./OtroRestador";*/
+
 
 class Sumador extends Component {
   constructor (props) {
@@ -20,8 +25,10 @@ class Sumador extends Component {
             <input className="boton" type={"button"} value={'-'} onClick={this.restar.bind(this)}/>
           </div>
           <div style={{clear: "both"}}></div>
-          <Multiplicador />
-          <Divisor />
+          {/*<Multiplicador />
+          <Divisor />*/}
+          <OtroSumador />
+          <OtroRestador />
         </div>
     );
   }

@@ -1,32 +1,20 @@
 import React, { Component } from "react";
 import OtroSumador from "./OtroSumador";
 import OtroRestador from "./OtroRestador";
-
-/*import Multiplicador from './Multiplicador';
-import Divisor from './Divisor';
-import OtroRestador from "./OtroRestador";*/
+import { connect } from 'react-redux';
+import { increment, decrement } from './redux/actions';
 
 
 class Sumador extends Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      count: 0
-    }
-  }
-
   render() {
     return (
         <div className="Sumador">
           <div className="Sumador-container">
             <input className="boton" type={"button"} value={'+'} onClick={this.sumar.bind(this)}/>
-            <span className="count-minor">{this.state.count}</span>
+            <span className="count-minor">{this.props.count}</span>
             <input className="boton" type={"button"} value={'-'} onClick={this.restar.bind(this)}/>
           </div>
           <div style={{clear: "both"}}></div>
-          {/*<Multiplicador />
-          <Divisor />*/}
           <OtroSumador />
           <OtroRestador />
         </div>
@@ -34,18 +22,28 @@ class Sumador extends Component {
   }
 
   sumar(e) {
-    let count = this.state.count;
-    this.setState({
-      count: count + 1
-    });
+    this.props.increment();
   }
 
   restar(e) {
-    let count = this.state.count;
-    this.setState({
-      count: count - 1
-    });
+    this.props.decrement();
   }
 }
 
-export default Sumador;
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+
+function mapDispatchToProps()  {
+  return {
+    increment,
+    decrement
+  }
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Sumador);

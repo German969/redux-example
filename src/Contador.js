@@ -1,15 +1,24 @@
 import React from 'react';
 import Sumador from "./Sumador";
+import { connect } from 'react-redux';
 
-function Contador() {
-  return (
-      <div className="Contador">
-        <div>
-          0
+class Contador extends React.Component {
+  render () {
+    return (
+        <div className="Contador">
+          <div>
+            {this.props.count}
+          </div>
+          <Sumador />
         </div>
-        <Sumador />
-      </div>
-  );
+    );
+  }
 }
 
-export default Contador;
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
+}
+
+export default connect(mapStateToProps)(Contador);
